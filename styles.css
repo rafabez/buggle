@@ -1,0 +1,228 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+body.show-results {
+  justify-content: flex-start;
+  height: auto;
+}
+
+.google-logo {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'Google Sans', sans-serif;
+  display: flex;
+  gap: 3px;
+  transition: all 0.3s ease;
+}
+
+body.show-results {
+    justify-content: flex-start;
+    height: auto;
+}
+
+.google-logo {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Google Sans', sans-serif;
+    display: flex;
+    gap: 3px;
+    transition: all 0.3s ease;
+}
+
+body.show-results .google-logo {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.google-logo span:nth-child(1) { color: #4285f4; } /* B */
+.google-logo span:nth-child(2) { color: #ea4335; } /* u */
+.google-logo span:nth-child(3) { color: #fbbc05; } /* u */
+.google-logo span:nth-child(4) { color: #34a853; } /* g */
+.google-logo span:nth-child(5) { color: #4285f4; } /* l */
+.google-logo span:nth-child(6) { color: #ea4335; } /* e */
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+body.show-results .search-bar {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center; /* Centers input and button vertically */
+    position: relative;
+}
+
+.search-bar input {
+    width: 500px;
+    padding: 10px 40px 10px 15px; /* Adds spacing for icon */
+    font-size: 1.2rem;
+    border: 1px solid #dadce0;
+    border-radius: 24px;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .search-bar input {
+        width: 90%; /* Adjust width to fit smaller screens */
+        font-size: 1rem; /* Slightly reduce font size */
+    }
+}
+
+.magnifying-glass-btn {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #4285f4;
+}
+
+body:not(.show-results) .magnifying-glass-btn {
+    right: 10px;
+    top: 5px;
+}
+
+body.show-results .magnifying-glass-btn {
+    right: 30px;
+    top: 30px;
+}
+.magnifying-glass-btn:hover {
+    color: #34a853;
+}
+
+.search-bar input:focus {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    border-color: #4285f4;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    margin: 0 5px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    color: #3c4043;
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #f1f3f4;
+}
+
+.buttons button:active {
+    background-color: #e8eaed;
+    border-color: #d2d5d9;
+}
+
+.searching-message {
+    display: none;
+    color: #1967d2;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+body.loading-active .searching-message {
+    display: block;
+}
+
+.loading {
+    display: none;
+    font-size: 1.5rem;
+    color: #4285f4;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+body.loading-active .loading {
+    display: block;
+}
+
+.search-results {
+    display: none;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f1f3f4;
+    border-radius: 12px;
+}
+
+body.show-results .search-results {
+    display: flex;
+    margin-top: 120px; /* Increases spacing between the input box and results */
+}
+
+.result {
+    padding: 20px;
+    border: 1px solid #dadce0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.result:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result h3 {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+    color: #1967d2;
+}
+
+.result p {
+    margin: 0;
+    font-size: 1rem;
+    color: #3c4043;
+}
+
+/* Added footer fix styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff; /* Adjust to match the theme */
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional for subtle elevation */
+    z-index: 1000; /* Ensures it stays above other elements */
+}
